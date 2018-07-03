@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webserver:
+    build: ./docker/node
+    image: cf4f_image
+    container_name: cf4f_container
+    tty: true
+    environment:
+      - FIREBASE_TOKEN=${FIREBASE_TOKEN}
+    volumes:
+      - .:/app
+    ports:
+      - "9005:9005"
+      - "5000:5000"
